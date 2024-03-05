@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+import myHeaderVue from "@/components/myHeader.vue";
+</script>
+
 <template>
-  <router-view />
+  <div>
+    <myHeaderVue />
+    <main class="main container">
+      <router-view />
+    </main>
+  </div>
 </template>

@@ -1,20 +1,11 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory  } from 'vue-router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import { createPinia } from 'pinia'
 import './style.css'
+import router from './router'
 import App from './App.vue'
 
 const app = createApp(App)
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            component: () => import('./views/index.vue')
-        }
-    ]
-})
-
-app.use(ElementPlus).use(router).mount('#app')
+app.use(ElementPlus).use(createPinia()).use(router).mount('#app')
