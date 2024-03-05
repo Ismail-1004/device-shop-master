@@ -16,5 +16,5 @@ export const useCategoryStore = defineStore('categoryStore', () => {
         }
     }
 
-    return { categories, getAllCategories }
+    return { categories, getAllCategories, filterValue }
 })
