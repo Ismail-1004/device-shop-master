@@ -3,6 +3,7 @@ import { ref } from 'vue'
 
 export const useCategoryStore = defineStore('categoryStore', () => {
     const categories = ref([])
+    const filterValue = ref('')
 
     const getAllCategories = async () => {
         try {

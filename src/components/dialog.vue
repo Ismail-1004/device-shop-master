@@ -15,7 +15,7 @@ const localDialogVisable = ref<boolean>(false)
 const form = ref({
   model: '',
   releaseYear: '',
-  category: [],
+  category: '',
   price: 0,
   description: '',
   addedDate: new Date().toISOString(),

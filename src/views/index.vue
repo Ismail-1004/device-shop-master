@@ -57,6 +57,8 @@ const handleDialogVisibleUpdate = (value: boolean) => {
 watch(
   () => categoryStore.filterValue,
   async (newValue: string) => {
+    console.log(newValue);
+    
     await productsStore.getProducts({
       category: newValue,
       page: productsStore.currentPage,
