@@ -2,7 +2,6 @@
 import { onMounted, ref, watch, reactive } from "vue";
 import { useProductsStore } from "../store/productsStore";
 import { useCategoryStore } from "../store/categoryStore";
-import { useModelStore } from "../store/modelStore";
 import Card from "../components/card.vue";
 import Dialog from "../components/dialog.vue";
 import Loader from "../components/loader.vue";

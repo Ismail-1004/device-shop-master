@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, defineProps, defineEmits, watch, computed } from "vue";
+import { ref, defineProps, defineEmits, watch } from "vue";
 
 const emit = defineEmits(['create', 'update:dialogVisible'])
 
