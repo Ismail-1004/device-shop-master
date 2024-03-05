@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 import { ref, defineProps, defineEmits, watch } from "vue";
 
 const emit = defineEmits(['create', 'update:dialogVisible'])
@@ -10,7 +10,7 @@ const props = defineProps({
   categories: Array,
 });
 
-const localDialogVisable = ref<boolean>(false)
+const localDialogVisable = ref(false)
 
 const form = ref({
   model: '',
@@ -34,11 +34,11 @@ const resetForm = () => {
   };
 };
 
-watch(() => props.dialogVisible, (newValue: boolean) => {
+watch(() => props.dialogVisible, (newValue) => {
   localDialogVisable.value = newValue;
 });
 
-watch(() => props.product, (newValue: any) => {
+watch(() => props.product, (newValue) => {
   Object.assign(form.value, newValue);
 });
 

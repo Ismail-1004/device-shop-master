@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 import { onMounted, ref, watch, reactive } from "vue";
 import { useProductsStore } from "../store/productsStore";
 import { useCategoryStore } from "../store/categoryStore";
@@ -12,8 +12,8 @@ const categoryStore = useCategoryStore();
 
 let currentPage = ref(0)
 
-let dialogVisible = ref<boolean>(false);
-let isNewProduct = ref<boolean>(true);
+let dialogVisible = ref(false);
+let isNewProduct = ref(true);
 let selectedProduct = reactive({
   product: {},
   id: 0,
@@ -25,11 +25,11 @@ const openModal = () => {
 };
 
 
-const createHandler = async (product: any) => {
+const createHandler = async (product) => {
   await productsStore.createProduct({product, page: currentPage.value});
 };
 
-const updateHandler = async ({ product, id }: { product: any; id: number }) => {
+const updateHandler = async ({ product, id }) => {
   dialogVisible.value = true;
   isNewProduct.value = false;
 
@@ -37,11 +37,11 @@ const updateHandler = async ({ product, id }: { product: any; id: number }) => {
   selectedProduct.id = product.id;
 };
 
-const updateProduct = async (product: any) => {
+const updateProduct = async (product) => {
   await productsStore.updateProduct(product);
 };
 
-const paginationHandler = async (page: number) => {
+const paginationHandler = async (page) => {
   currentPage.value = page
   await productsStore.getProducts({
     page,
@@ -50,13 +50,13 @@ const paginationHandler = async (page: number) => {
   });
 };
 
-const handleDialogVisibleUpdate = (value: boolean) => {
+const handleDialogVisibleUpdate = (value) => {
   dialogVisible.value = value;
 };
 
 watch(
   () => categoryStore.filterValue,
-  async (newValue: string) => {
+  async (newValue) => {
     console.log(newValue);
     
     await productsStore.getProducts({
@@ -69,7 +69,7 @@ watch(
 
 watch(
   () => productsStore.model,
-  debounce(async (newValue: string) => {
+  debounce(async (newValue) => {
     await productsStore.getProducts({
       model: newValue,
       page: productsStore.currentPage,
