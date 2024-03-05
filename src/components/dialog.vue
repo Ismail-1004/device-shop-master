@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref, defineProps, defineEmits, watch, computed } from "vue";
-import { Form, Field } from 'vee-validate'
 
 const emit = defineEmits(['create', 'update:dialogVisible'])
 
